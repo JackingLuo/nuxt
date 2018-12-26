@@ -1,3 +1,3 @@
 import Vue from "vue";
-import {Icon}  from "vant";
-Vue.use(Icon);
+import {Icon,Dialog,Field,CellGroup, Button,Notify}  from "vant";
+Vue.use(Icon).use(Dialog).use(Field).use(CellGroup).use(Button).use(Notify);

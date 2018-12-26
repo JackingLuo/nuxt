@@ -8,15 +8,13 @@ Vue.use(Vuex)
 const store = () =>  new Vuex.Store({
   state:{
     //定义数据
-    list:[1,2,3,4,5],
-    authUser:null,
-
+    isCheck:false,//校验是否通过验证
   },
   mutations:{
   //定义方法,改变state中的数据
-    change(state,params){
-      state.list[params] +=1;
-      Vue.set(state.list,params,state.list[params]);//Vue的set方法,可以改变当前数据索引所对应的值
+    change(state){
+      state.isCheck = !state.isCheck
+      // Vue.set(state.list,params,state.list[params]);//Vue的set方法,可以改变当前数据索引所对应的值
     },
   },
 
