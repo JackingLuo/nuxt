@@ -3,20 +3,21 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'study',
+    title: '小罗的个人网站',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/bitbug_favicon.ico' }
     ]
   },
   /*
   **配置全局的css文件
   */
-  css:['~assets/css/normailze.css','iview/dist/styles/iview.css'],
+  // css:['~assets/css/normailze.css'],
+  css:['~assets/css/normailze.css','vant/lib/index.css'],//全局引入vant
   /*
   * plugins插件配置
   * */
@@ -42,7 +43,7 @@ module.exports = {
         }
       }
     ],
-    vendor: ['~/plugins/vue-notifications','iview/dist/styles/iview.css','iview'],
+    vendor: ['~/plugins/vue-notifications','vant/lib/index.css','iview'],//iview表示哪一个插件
     /*
     ** Run ESLint on save
     * 注释eslint
@@ -58,9 +59,27 @@ module.exports = {
     //   }
     // }
   },
+  /*
+    * 设置代理(调试阶段)
+    * */
+  // proxy: [
+  //   ['/api', {
+  //     // target: 'http://10.143.0.223:5555', //  api主机
+  //     // target: 'http://10.26.32.249:8090', // 三丰 api主机
+  //     // target: 'http://10.26.32.113:8088',//富强 /m/crops/api主机
+  //     target:'http://farm2.1chemic.com/api/',
+  //     // target:'http://garden.mapfarm.com'
+  //     pathRewrite: {'^/api': '/'}
+  //   }],
+  //
+  //   ['/remoter', {
+  //     target: 'http://10.143.0.223:5555/m/crops/', // api主机
+  //     pathRewrite: {'^/remoter': '/'}
+  //   }]
+  // ],
 
   /*
-  * 为每个路由页面设置中间件,设置的验证中间件可以在这里引入执行
+  * 为每个路由页面设置中间件(全局中间件),设置的验证中间件可以在这里引入执行
   * */
   router: {
     middleware: 'auth'

@@ -10,9 +10,9 @@ export default function({ store, route, redirect, error }){
   // console.log(route.path);
 
   //用中间件做路由重定向
-  if(route.path=='/'){
-    return redirect({path:'/childTwo'})
-  }
+  // if(route.path=='/'){
+  //   return redirect({path:'/home'})
+  // }
 
 
 }

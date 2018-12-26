@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <h3>son中的index页面</h3>
-  </div>
+<div class="body">
+  关于博主
+</div>
 </template>
 
 <script>
-
     export default {
-        name: "index",
-
+      layout: 'myLayout',
     }
 </script>
 

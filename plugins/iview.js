@@ -1,3 +1,3 @@
 import Vue from "vue";
-import iview from "iview";
-Vue.use(iview);
+import {Icon}  from "vant";
+Vue.use(Icon);

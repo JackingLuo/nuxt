@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <h3>son中的other页面</h3>
+  <div class="body">
+    生活页
   </div>
 </template>
 
 <script>
     export default {
-        name: "other"
+      layout: 'myLayout',
     }
 </script>
 
