@@ -21,11 +21,6 @@
           isPhone:false,
           imageList:[
             "/myWife/1.jpg",
-            "/myWife/2.jpg",
-            "/myWife/3.jpg",
-            "/myWife/4.jpg",
-            "/myWife/5.jpg",
-            "/myWife/6.jpg",
           ]
         }
       },
