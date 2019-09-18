@@ -3,20 +3,20 @@
     <!--左定位-->
     <div class="left">
       <div class="header">
-        <img src="../static/me.png"  width="100">
+        <img src="../static/myWife/7.jpg">
       </div>
-      <ul>
-        <li><nuxt-link :to="{path:'/'}"><img src="../static/home.png" width="18">博客首页</nuxt-link></li>
-        <li><nuxt-link :to="{path:'/life'}"><img src="../static/life.png" width="18">生活照片</nuxt-link></li>
-        <li><nuxt-link :to="{path:'/article'}"><img src="../static/word.png" width="18">一些文章</nuxt-link></li>
-        <li><nuxt-link :to="{path:'/about'}"><img src="../static/me.png" width="18">关于博主</nuxt-link></li>
+      <ul @click="clickList($event)">
+        <li><nuxt-link :to="{path:'/'}"><img src="~/static/home.png" width="18">博客首页</nuxt-link></li>
+        <li><nuxt-link :to="{path:'/life'}"><img src="~/static/life.png" width="18">生活照片</nuxt-link></li>
+        <li><nuxt-link :to="{path:'/article'}"><img src="~/static/word.png" width="18">一些文章</nuxt-link></li>
+        <li><nuxt-link :to="{path:'/about'}"><img src="~/static/me.png" width="18">关于博主</nuxt-link></li>
       </ul>
     </div>
     <!--上定位-->
     <div class="title" ref="title">
       <span>欢迎来到我的博客!</span>
       <div class="titLeft" @click="showLeft">
-        <img src="../static/more.png" v-show="isShow">
+        <img src="~/static/more.png" v-show="isShow">
         <van-icon name="cross" size="25px"  v-show="!isShow"/>
       </div>
       <div class="titRight"></div>
@@ -35,23 +35,31 @@
     name: "myLayout",
     data(){
       return{
-        isShow:true
+        isShow:true,
+        isPhone:false,
       }
     },
     methods:{
       showLeft(){
-        if(this.isShow){
-          this.$refs.right.style.transform = "translateX(300px)";
-          this.$refs.title.style.transform = "translateX(300px)";
-          this.isShow = false;
-        }else{
-          this.$refs.right.style.transform = "translateX(0)";
-          this.$refs.title.style.transform = "translateX(0)";
-          this.isShow = true;
+          if(this.isShow){
+            this.$refs.right.style.transform = "translateX(260px)";
+            this.$refs.title.style.transform = "translateX(260px)";
+            this.isShow = false;
+          }else{
+            this.hideList()
+          }
+      },
+      hideList(){
+        this.$refs.right.style.transform = "translateX(0)";
+        this.$refs.title.style.transform = "translateX(0)";
+        this.isShow = true;
+      },
+      clickList(e){
+        if(e.target.localName && document.documentElement.offsetWidth<992){
+          this.hideList()
         }
-
       }
-    }
+    },
   }
 </script>
 
@@ -66,7 +74,7 @@
     height: 100%;
   }
   .left{
-    width: 300px;
+    width: 260px;
     height: 100%;
     position: fixed;
     left: 0;
@@ -85,6 +93,16 @@
     overflow: hidden;
     margin-bottom: 20px;
   }
+  .header{
+    position: relative;
+  }
+  .header img{
+    width: 100px;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    z-index: 0;
+  }
   .left a{
     color: #fff;
   }
@@ -96,7 +114,8 @@
   }
   .right{
     width: 100%;
-    transform: translateX(300px);
+    height: 100%;
+    transform: translateX(260px);
     background-color: #fff;
     transition: all 0.3s ease 0s ;
   }
@@ -134,23 +153,29 @@
     background-color: #fff;
     font-size: 18px;
   }
-  .titRight img{
-    width:40px;
+  .titRight{
+    overflow: hidden;
+    background: url("../static/myWife/me.jpg") no-repeat;
+    background-size:contain;
   }
   .pages{
+    height: 100%;
     box-sizing: border-box;
     padding:0 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
   /*媒体查询显示隐藏*/
   /*如果是手机或者平板*/
   @media screen and (max-width:992px){
     .right{
       transform: translateX(0);
-      min-height: 750px;
-      margin-top: 50px;
     }
     .title{
       display: block;
+    }
+    .pages{
+      padding:50px 10px 0 10px;
     }
   }
 

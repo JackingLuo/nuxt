@@ -11,6 +11,14 @@
       layout:"myLayout",
       name: "check",
       components:{diaLog},
+      head() {
+        return {
+          title: "访问校验"
+        };
+      },
+      created(){
+
+      }
     }
 </script>
 

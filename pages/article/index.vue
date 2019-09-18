@@ -7,6 +7,11 @@
 <script>
     export default {
       layout: 'myLayout',
+      head() {
+        return {
+          title: "一些文章"
+        };
+      },
     }
 </script>
 

@@ -7,6 +7,11 @@
 <script>
     export default {
       layout: 'myLayout',
+      head() {
+        return {
+          title: "关于博主"
+        };
+      },
     }
 </script>
 

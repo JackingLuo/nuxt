@@ -10,7 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/bitbug_favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /*
@@ -22,7 +22,7 @@ module.exports = {
   * plugins插件配置
   * */
   plugins:[
-    '~plugins/iview'
+    '~plugins/iview',
   ],
   /*
   ** Build configuration
@@ -65,8 +65,6 @@ module.exports = {
   // proxy: [
   //   ['/api', {
   //     // target: 'http://10.143.0.223:5555', //  api主机
-  //     // target: 'http://10.26.32.249:8090', // 三丰 api主机
-  //     // target: 'http://10.26.32.113:8088',//富强 /m/crops/api主机
   //     target:'http://farm2.1chemic.com/api/',
   //     // target:'http://garden.mapfarm.com'
   //     pathRewrite: {'^/api': '/'}

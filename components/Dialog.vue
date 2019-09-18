@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  import Cookies from "js-cookie";
   export default {
     data() {
       return {
@@ -31,7 +32,8 @@
       },
       goIn(){
         if(this.password=="sy520"){
-          this.$store.commit("change")
+          this.$store.commit("change");
+          Cookies.set('_ISLOGIN',"true", { expires: 3 });
           this.$router.push({path:"/life"})
         }else{
           this.$notify('密码错误');
