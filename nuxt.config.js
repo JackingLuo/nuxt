@@ -43,7 +43,13 @@ module.exports = {
         }
       }
     ],
-    vendor: ['~/plugins/vue-notifications','vant/lib/index.css','iview'],//iview表示哪一个插件
+
+    vendor: [
+      '~/plugins/vue-notifications',
+      'vant/lib/index.css',
+      'iview',
+      'axios'
+    ],//iview表示哪一个插件
     /*
     ** Run ESLint on save
     * 注释eslint

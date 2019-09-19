@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import Cookies from "js-cookie";
+  import axios from "axios";
   export default {
     data() {
       return {
@@ -31,13 +31,14 @@
         this.$router.push({path:"/"})
       },
       goIn(){
-        if(this.password=="sy520"){
-          this.$store.commit("change");
-          Cookies.set('_ISLOGIN',"true", { expires: 3 });
-          this.$router.push({path:"/life"})
-        }else{
-          this.$notify('密码错误');
-        }
+        axios.post('http://127.0.0.1:8099/checkPsd',{password:this.password}).then(res=>{
+          if(res.data.succ){
+            sessionStorage.setItem('hasLogin',"true")
+            this.$router.push({path:'/life'})
+          }else{
+            this.$toast.fail(res.data.msg);
+          }
+        })
       }
     }
   }

@@ -25,6 +25,9 @@
         }
       },
       created(){
+        if(!sessionStorage.getItem('hasLogin')){
+          this.$router.push({path:'check'});
+        }
         //判定是否是手机
         if(document.documentElement.offsetWidth>992){
           this.isPhone = false;

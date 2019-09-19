@@ -7,7 +7,7 @@
       </div>
       <ul @click="clickList($event)">
         <li><nuxt-link :to="{path:'/'}"><img src="~/static/home.png" width="18">博客首页</nuxt-link></li>
-        <li><nuxt-link :to="{path:'/life'}"><img src="~/static/life.png" width="18">生活照片</nuxt-link></li>
+        <li><div class="tolife" @click="toLife"><img src="~/static/life.png" width="18">生活照片</div></li>
         <li><nuxt-link :to="{path:'/article'}"><img src="~/static/word.png" width="18">一些文章</nuxt-link></li>
         <li><nuxt-link :to="{path:'/about'}"><img src="~/static/me.png" width="18">关于博主</nuxt-link></li>
       </ul>
@@ -49,6 +49,15 @@
             this.hideList()
           }
       },
+      toLife(){
+        let hasLogin = sessionStorage.getItem('hasLogin');
+        if(hasLogin){
+          this.$router.push({path:'life'});
+        }else{
+          this.$router.push({path:'check'});
+        }
+
+      },
       hideList(){
         this.$refs.right.style.transform = "translateX(0)";
         this.$refs.title.style.transform = "translateX(0)";
@@ -84,6 +93,10 @@
     background-size: cover;
     padding-top: 12%;
     text-align: center;
+  }
+  .tolife{
+    color: #fff;
+    cursor: pointer;
   }
   .left .header{
     display: inline-block;
